@@ -1,11 +1,9 @@
-
-
 ---
 
 # Projeto: Classificação de Defeitos em Chapas de Aço
 
-Este projeto foi feito para o bootcamp de Ciência de Dados.
-O objetivo é treinar um modelo que identifica automaticamente o tipo de defeito em uma chapa de aço inox, usando medidas que foram tiradas de um modelo de  chapa de aço.
+Este projeto foi feito para o Bootcamp de Ciência de Dados – SENAI SC.  
+O objetivo é treinar um modelo que identifica automaticamente o tipo de defeito em uma chapa de aço inox, com base em 31 indicadores extraídos de imagens da superfície das chapas.
 
 ---
 
@@ -15,7 +13,8 @@ O objetivo é treinar um modelo que identifica automaticamente o tipo de defeito
 * Limpa os dados e prepara para o modelo
 * Treina um modelo para prever o tipo de defeito
 * Mostra os resultados e a acurácia do modelo
-* Exibe um dashboard com gráfico no navegador
+* Salva automaticamente os gráficos gerados
+* Exibe um dashboard interativo com gráficos no navegador
 
 ---
 
@@ -23,16 +22,17 @@ O objetivo é treinar um modelo que identifica automaticamente o tipo de defeito
 
 ```
 projeto_residencia_ia/
-├── data/                  → Onde está o arquivo de dados CSV
-├── src/                   → Onde está o código principal do projeto
-│   ├── main.py            → Código principal que roda tudo
-│   ├── carregamento.py    → Carrega os dados
-│   ├── preprocessamento.py→ Limpa e trata os dados
-│   ├── treinamento.py     → Treina o modelo de machine learning
-│   └── avaliacao.py       → Mostra o resultado (acurácia)
-├── app.py                 → Mostra o gráfico em forma de dashboard
-├── requirements.txt       → Lista de bibliotecas usadas
-└── README.md              → Explicação do projeto
+├── data/                     → Onde está o arquivo de dados CSV
+├── imagens_resultados/       → Onde ficam os gráficos gerados automaticamente
+├── src/                      → Onde está o código principal do projeto
+│   ├── main.py               → Código principal que roda tudo
+│   ├── carregamento.py       → Carrega os dados
+│   ├── preprocessamento.py   → Limpa e trata os dados
+│   ├── treinamento.py        → Treina o modelo de machine learning
+│   └── avaliacao.py          → Mostra o resultado (acurácia)
+├── app.py                    → Exibe o dashboard interativo com Streamlit
+├── requirements.txt          → Lista de bibliotecas usadas
+└── README.md                 → Explicação do projeto
 ```
 
 ---
@@ -77,7 +77,7 @@ pip install -r requirements.txt
 python src/main.py
 ```
 
-### 6. Ver o dashboard (gráfico no navegador)
+### 6. Ver o dashboard (gráficos no navegador)
 
 ```bash
 streamlit run app.py
@@ -103,7 +103,7 @@ falha_outros: 74%
 
 ## 🙋‍♂️ Feito por
 
-**Rodrigo Teles Dondé**
+**Rodrigo Teles Dondé**  
 Projeto final do Bootcamp CDIA – SENAI SC
 
 ---
