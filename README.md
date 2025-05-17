@@ -9,12 +9,12 @@ O objetivo é treinar um modelo que identifica automaticamente o tipo de defeito
 
 ## 🔧 O que o projeto faz
 
-* Carrega os dados de um arquivo CSV
-* Limpa os dados e prepara para o modelo
-* Treina um modelo para prever o tipo de defeito
-* Mostra os resultados e a acurácia do modelo
-* Salva automaticamente os gráficos gerados
-* Exibe um dashboard interativo com gráficos no navegador
+- Carrega os dados de um arquivo CSV  
+- Limpa os dados e prepara para o modelo  
+- Treina um modelo para prever o tipo de defeito  
+- Mostra os resultados e a acurácia do modelo  
+- Salva automaticamente os gráficos gerados  
+- Exibe um dashboard interativo com gráficos no navegador  
 
 ---
 
@@ -51,7 +51,7 @@ sh
 Copiar
 Editar
 .venv\Scripts\activate
-⚠️ Se estiver usando PowerShell e aparecer erro de permissão, execute:
+⚠️ Se estiver usando PowerShell e aparecer erro de permissão:
 
 sh
 Copiar
@@ -68,12 +68,12 @@ sh
 Copiar
 Editar
 python src/main.py
-6. Ver o dashboard (gráficos no navegador)
+6. Ver o dashboard no navegador
 sh
 Copiar
 Editar
 streamlit run app.py
-Acesse: http://localhost:8501
+Acesse em: http://localhost:8501
 
 ✅ Resultados do modelo (avaliação local)
 makefile
@@ -95,23 +95,18 @@ Macro ROC AUC: 0,89
 
 F1-Score mais alto: 0,20 (Classe 5)
 
-Apesar do bom desempenho médio, os resultados por classe mostraram baixa precisão para detectar classes de falha minoritárias, refletindo o desbalanceamento nos dados.
+Apesar do bom desempenho médio, os resultados por classe mostraram baixa precisão para detectar falhas minoritárias, refletindo o desbalanceamento nos dados.
 
-As métricas completas estão disponíveis no arquivo:
-
-bash
-Copiar
-Editar
+📁 As métricas completas estão salvas em:
 avaliacoes/metrics_resultado_api.json
+
 ✅ Etapas Concluídas no Projeto
 📁 Estrutura do Projeto
-
 Organização em pastas (data, src, imagens_resultados, avaliacoes)
 
 Código modularizado: carregamento.py, preprocessamento.py, treinamento.py, avaliacao.py, main.py
 
 📊 Análise e Modelagem
-
 Tratamento de valores nulos e negativos
 
 Balanceamento das classes com RandomOverSampler
@@ -127,28 +122,25 @@ Geração de predições com bootcamp_test.csv
 Geração do arquivo predicoes_para_api.csv
 
 🧪 Validação Final
-
 Envio das predições para a API oficial
 
 Métricas avaliadas com sucesso: Macro Accuracy: 85,82%, AUC: 0.89
 
-JSON com as métricas salvo na pasta avaliacoes/
+JSON com métricas salvo na pasta avaliacoes/
 
 📊 Dashboard
+Dashboard com Streamlit funcional
 
-Dashboard com Streamlit funcionando
+Visualizações: distribuição de falhas, importância de variáveis
 
-Visualizações dinâmicas: distribuição de falhas, importância de variáveis
-
-Filtros interativos: por falha, ID, espessura, checkboxes
+Filtros interativos: por falha, ID, espessura e checkboxes
 
 📄 Documentação
-
 README.md bem estruturado e técnico
 
-Instruções para execução local
+Instruções completas para execução local
 
-Seção de avaliação final da API com interpretação
+Seção de avaliação via API explicada
 
 🙋‍♂️ Feito por
 Rodrigo Teles Dondé
