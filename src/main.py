@@ -1,8 +1,8 @@
-
 from carregamento import carregar_dados
 from preprocessamento import tratar_dados
 from treinamento import treinar_modelo
 from avaliacao import avaliar_modelo
+import joblib  # <- adicionado aqui para salvar o modelo
 
 # Caminho do arquivo CSV com os dados
 caminho = r"data/bootcamp_train.csv"
@@ -27,5 +27,10 @@ if df is not None:
 
     # Avaliação do modelo com os dados de teste
     avaliar_modelo(modelo, X_test, y_test, nomes_colunas)
+
+    # Salva o modelo treinado
+    joblib.dump(modelo, 'modelo_final.joblib')
+    print("Modelo salvo como modelo_final.joblib")
+
 else:
     print("Encerrando execução devido a erro no carregamento dos dados.")

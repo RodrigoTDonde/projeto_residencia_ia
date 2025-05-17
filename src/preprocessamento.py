@@ -1,8 +1,7 @@
-
 import pandas as pd
 
 def tratar_dados(df):
-    # Tratando colunas com valores nulos
+    # Tratando colunas com valores nulos (NaN)
     colunas_com_nulos = [
         'x_maximo', 'soma_da_luminosidade', 'maximo_da_luminosidade',
         'espessura_da_chapa_de_aço', 'index_quadrado',
@@ -25,7 +24,8 @@ def tratar_dados(df):
     }
 
     for col in colunas_falhas:
-        df[col] = df[col].astype(str).str.lower().map(mapa_binario).fillna(0).astype(int)
+        if col in df.columns:
+            df[col] = df[col].astype(str).str.lower().map(mapa_binario).fillna(0).astype(int)
 
     # Corrigindo outras colunas que contêm texto e deveriam ser numéricas
     colunas_com_texto = [
@@ -35,5 +35,18 @@ def tratar_dados(df):
 
     for col in colunas_com_texto:
         df[col] = pd.to_numeric(df[col], errors='coerce').fillna(0)
+
+    # Trata valores negativos em colunas onde não fazem sentido
+    colunas_sem_negativos = [
+        'x_minimo', 'x_maximo', 'y_minimo', 'y_maximo',
+        'area_pixels', 'perimetro_x', 'perimetro_y',
+        'comprimento_do_transportador', 'espessura_da_chapa_de_aço',
+        'indice_de_orientaçao', 'indice_de_luminosidade'
+    ]
+
+    for coluna in colunas_sem_negativos:
+        if coluna in df.columns:
+            mediana = df[coluna].median()
+            df[coluna] = df[coluna].apply(lambda x: x if x >= 0 else mediana)
 
     return df
