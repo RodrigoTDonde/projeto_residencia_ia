@@ -36,47 +36,53 @@ projeto_residencia_ia/
 └── README.md                 → Este documento
 🖥️ Como rodar o projeto no seu computador
 🔹 1. Clonar o repositório
-sh
+
+bash
 Copiar
 Editar
 git clone https://github.com/RodrigoTDonde/projeto_residencia_ia.git
 cd projeto_residencia_ia
 🔹 2. Criar ambiente virtual
-sh
+
+bash
 Copiar
 Editar
 python -m venv .venv
 🔹 3. Ativar ambiente virtual (Windows)
-sh
+
+bash
 Copiar
 Editar
 .venv\Scripts\activate
 ⚠️ Se estiver usando PowerShell, execute antes:
 
-sh
+bash
 Copiar
 Editar
 Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 .venv\Scripts\Activate.ps1
 🔹 4. Instalar dependências
-sh
+
+bash
 Copiar
 Editar
 pip install -r requirements.txt
 🔹 5. Executar o script principal
-sh
+
+bash
 Copiar
 Editar
 python src/main.py
 🔹 6. Iniciar o dashboard interativo
-sh
+
+bash
 Copiar
 Editar
 streamlit run app.py
 Acesse em: http://localhost:8501
 
 ✅ Resultados do modelo (avaliação local)
-makefile
+text
 Copiar
 Editar
 falha_1: 93%
@@ -98,6 +104,20 @@ Os principais resultados foram:
 
 📁 Arquivo com métricas salvo em:
 avaliacoes/metrics_resultado_api.json
+
+🔍 Verificação de múltiplas falhas por amostra
+Foi criado um script dedicado (verificar_multiplas_falhas.py) para verificar se uma mesma amostra poderia apresentar mais de um tipo de falha simultaneamente.
+
+Resultado:
+🟡 Linhas com 0 falhas: 1923
+
+🟢 Linhas com 1 falha: 1467
+
+🔴 Linhas com mais de 1 falha: 0
+
+Conclusão: Nenhuma amostra no dataset apresenta múltiplas falhas.
+
+Mesmo assim, optamos por modelar o problema como multirrótulo, utilizando MultiOutputClassifier, garantindo flexibilidade, clareza por classe e compatibilidade com a avaliação via API.
 
 📌 Etapas Concluídas no Projeto
 📂 Estrutura
